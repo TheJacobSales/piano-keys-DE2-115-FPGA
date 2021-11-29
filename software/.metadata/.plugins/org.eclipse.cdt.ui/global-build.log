@@ -1,0 +1,120 @@
+00:26:31 **** Incremental Build of configuration Nios II for project AudioKeyboard ****
+make all 
+Info: Building ../AudioKeyboard_bsp/
+D:/MainApps/QuartusLite/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../AudioKeyboard_bsp/
+[BSP build complete]
+Info: Compiling AudioKeyboard.c to obj/default/AudioKeyboard.o
+nios2-elf-gcc -xc -MP -MMD -c -I../AudioKeyboard_bsp//HAL/inc -I../AudioKeyboard_bsp/ -I../AudioKeyboard_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/AudioKeyboard.o AudioKeyboard.c
+AudioKeyboard.c: In function 'handle_audio_interrupts':
+AudioKeyboard.c:97:38: warning: passing argument 2 of 'alt_up_audio_write_fifo' from incompatible pointer type [-Wincompatible-pointer-types]
+  alt_up_audio_write_fifo (audio_dev, &(x), a, ALT_UP_AUDIO_RIGHT);
+                                      ^
+In file included from AudioKeyboard.c:12:0:
+../AudioKeyboard_bsp//drivers/inc/altera_up_avalon_audio.h:191:5: note: expected 'unsigned int *' but argument is of type 'unsigned int (*)[128]'
+ int alt_up_audio_write_fifo(alt_up_audio_dev *audio, unsigned int *buf, int len, int channel);
+     ^
+AudioKeyboard.c:98:38: warning: passing argument 2 of 'alt_up_audio_write_fifo' from incompatible pointer type [-Wincompatible-pointer-types]
+  alt_up_audio_write_fifo (audio_dev, &(x), a, ALT_UP_AUDIO_LEFT);
+                                      ^
+In file included from AudioKeyboard.c:12:0:
+../AudioKeyboard_bsp//drivers/inc/altera_up_avalon_audio.h:191:5: note: expected 'unsigned int *' but argument is of type 'unsigned int (*)[128]'
+ int alt_up_audio_write_fifo(alt_up_audio_dev *audio, unsigned int *buf, int len, int channel);
+     ^
+AudioKeyboard.c: In function 'handle_gpio_interrupts':
+AudioKeyboard.c:104:31: warning: initialization from incompatible pointer type [-Wincompatible-pointer-types]
+  volatile int *sinArray_ptr = &sinArray;
+                               ^
+AudioKeyboard.c:103:7: warning: unused variable 'contextArray_ptr' [-Wunused-variable]
+  int* contextArray_ptr = (int*) context;
+       ^
+AudioKeyboard.c: In function 'pio_init':
+AudioKeyboard.c:136:2: warning: implicit declaration of function 'alt_printf' [-Wimplicit-function-declaration]
+  alt_printf ("Error: could not open audio device \n");
+  ^
+AudioKeyboard.c:148:49: warning: passing argument 3 of 'alt_irq_register' from incompatible pointer type [-Wincompatible-pointer-types]
+  alt_irq_register( AUDIOCORE_IRQ, sinArray_ptr, handle_audio_interrupts);
+                                                 ^
+In file included from ../AudioKeyboard_bsp//HAL/inc/sys/alt_irq.h:218:0,
+                 from AudioKeyboard.c:14:
+../AudioKeyboard_bsp//HAL/inc/priv/alt_legacy_irq.h:61:12: note: expected 'alt_isr_func {aka void (*)(void *, long unsigned int)}' but argument is of type 'void (*)(void *)'
+ extern int alt_irq_register (alt_u32 id, 
+            ^
+AudioKeyboard.c:149:49: warning: passing argument 3 of 'alt_irq_register' from incompatible pointer type [-Wincompatible-pointer-types]
+  alt_irq_register( GPIO_EXPANSION_IRQ, last_on, handle_gpio_interrupts);
+                                                 ^
+In file included from ../AudioKeyboard_bsp//HAL/inc/sys/alt_irq.h:218:0,
+                 from AudioKeyboard.c:14:
+../AudioKeyboard_bsp//HAL/inc/priv/alt_legacy_irq.h:61:12: note: expected 'alt_isr_func {aka void (*)(void *, long unsigned int)}' but argument is of type 'void (*)(void *)'
+ extern int alt_irq_register (alt_u32 id, 
+            ^
+AudioKeyboard.c:126:8: warning: unused variable 'contextArray_ptr' [-Wunused-variable]
+  void* contextArray_ptr = (void*) &contextArray;
+        ^
+Info: Linking AudioKeyboard.elf
+nios2-elf-g++  -T'../AudioKeyboard_bsp//linker.x' -msys-crt0='../AudioKeyboard_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../AudioKeyboard_bsp/   -Wl,-Map=AudioKeyboard.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx -mgpopt=global  -o AudioKeyboard.elf obj/default/AudioKeyboard.o -lm -msys-lib=m
+nios2-elf-insert AudioKeyboard.elf --thread_model hal --cpu_name myCPU --qsys true --simulation_enabled false --id 0 --sidp 0x3030 --timestamp 1620088820 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name Nios2 --quartus_project_dir "D:/Stupid_Folder_For_Stupid_Programs/audioKeyboardSPOC" --sopcinfo D:/Stupid_Folder_For_Stupid_Programs/audioKeyboardSPOC/software/AudioKeyboard_bsp/../../Nios2.sopcinfo
+Info: (AudioKeyboard.elf) 29 KBytes program size (code + initialized data).
+Info:                     131035 KBytes free for stack + heap.
+Info: Creating AudioKeyboard.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source AudioKeyboard.elf >AudioKeyboard.objdump
+[AudioKeyboard build complete]
+01:31:09 **** Build of configuration Nios II for project AudioKeyboard ****
+make all 
+Info: Building ../AudioKeyboard_bsp/
+D:/MainApps/QuartusLite/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../AudioKeyboard_bsp/
+[BSP build complete]
+[AudioKeyboard build complete]
+01:31:10 **** Incremental Build of configuration Nios II for project AudioKeyboard ****
+make all 
+Info: Building ../AudioKeyboard_bsp/
+D:/MainApps/QuartusLite/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../AudioKeyboard_bsp/
+[BSP build complete]
+[AudioKeyboard build complete]
+10:43:39 **** Build of configuration Nios II for project AudioKeyboard ****
+make all 
+Info: Building ../AudioKeyboard_bsp/
+D:/MainApps/QuartusLite/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../AudioKeyboard_bsp/
+[BSP build complete]
+[AudioKeyboard build complete]
+10:44:18 **** Incremental Build of configuration Nios II for project AudioKeyboard ****
+make all 
+Info: Building ../AudioKeyboard_bsp/
+D:/MainApps/QuartusLite/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../AudioKeyboard_bsp/
+[BSP build complete]
+[AudioKeyboard build complete]
+10:48:57 **** Build of configuration Nios II for project AudioKeyboard ****
+make all 
+Info: Building ../AudioKeyboard_bsp/
+D:/MainApps/QuartusLite/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../AudioKeyboard_bsp/
+[BSP build complete]
+[AudioKeyboard build complete]
+10:48:58 **** Incremental Build of configuration Nios II for project AudioKeyboard ****
+make all 
+Info: Building ../AudioKeyboard_bsp/
+D:/MainApps/QuartusLite/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../AudioKeyboard_bsp/
+[BSP build complete]
+[AudioKeyboard build complete]
+10:52:07 **** Build of configuration Nios II for project AudioKeyboard ****
+make all 
+Info: Building ../AudioKeyboard_bsp/
+D:/MainApps/QuartusLite/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../AudioKeyboard_bsp/
+[BSP build complete]
+[AudioKeyboard build complete]
+10:52:07 **** Incremental Build of configuration Nios II for project AudioKeyboard ****
+make all 
+Info: Building ../AudioKeyboard_bsp/
+D:/MainApps/QuartusLite/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../AudioKeyboard_bsp/
+[BSP build complete]
+[AudioKeyboard build complete]
+11:06:12 **** Build of configuration Nios II for project AudioKeyboard ****
+make all 
+Info: Building ../AudioKeyboard_bsp/
+D:/MainApps/QuartusLite/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../AudioKeyboard_bsp/
+[BSP build complete]
+[AudioKeyboard build complete]
+11:06:13 **** Incremental Build of configuration Nios II for project AudioKeyboard ****
+make all 
+Info: Building ../AudioKeyboard_bsp/
+D:/MainApps/QuartusLite/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../AudioKeyboard_bsp/
+[BSP build complete]
+[AudioKeyboard build complete]

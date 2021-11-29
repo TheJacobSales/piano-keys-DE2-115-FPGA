@@ -1,0 +1,9 @@
+14:29:25 **** Incremental Build of configuration Nios II for project KeyboardAudio ****
+make all 
+Info: Building ../KeyboardAudio_bsp/
+D:/MainApps/QuartusLite/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../KeyboardAudio_bsp/
+[BSP build complete]
+[KeyboardAudio build complete]
+
+14:29:25 Build Finished (took 569ms)
+

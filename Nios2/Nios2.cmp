@@ -1,0 +1,40 @@
+	component Nios2 is
+		port (
+			audio_clk_clk             : out   std_logic;                                        -- clk
+			audio_pll_ref_clk_clk     : in    std_logic                     := 'X';             -- clk
+			audio_pll_ref_reset_reset : in    std_logic                     := 'X';             -- reset
+			audiocore_ADCDAT          : in    std_logic                     := 'X';             -- ADCDAT
+			audiocore_ADCLRCK         : in    std_logic                     := 'X';             -- ADCLRCK
+			audiocore_BCLK            : in    std_logic                     := 'X';             -- BCLK
+			audiocore_DACDAT          : out   std_logic;                                        -- DACDAT
+			audiocore_DACLRCK         : in    std_logic                     := 'X';             -- DACLRCK
+			avconfig_SDAT             : inout std_logic                     := 'X';             -- SDAT
+			avconfig_SCLK             : out   std_logic;                                        -- SCLK
+			clk_clk                   : in    std_logic                     := 'X';             -- clk
+			gpio_expansion_export     : inout std_logic_vector(31 downto 0) := (others => 'X'); -- export
+			hex0_export               : out   std_logic_vector(6 downto 0);                     -- export
+			hex1_export               : out   std_logic_vector(6 downto 0);                     -- export
+			hex2_export               : out   std_logic_vector(6 downto 0);                     -- export
+			hex3_export               : out   std_logic_vector(6 downto 0);                     -- export
+			hex4_export               : out   std_logic_vector(6 downto 0);                     -- export
+			hex5_export               : out   std_logic_vector(6 downto 0);                     -- export
+			hex6_export               : out   std_logic_vector(6 downto 0);                     -- export
+			hex7_export               : out   std_logic_vector(6 downto 0);                     -- export
+			keys_export               : in    std_logic_vector(3 downto 0)  := (others => 'X'); -- export
+			ledg_export               : out   std_logic_vector(7 downto 0);                     -- export
+			ledr_export               : out   std_logic_vector(17 downto 0);                    -- export
+			reset_reset               : in    std_logic                     := 'X';             -- reset
+			sdram_clk_clk             : out   std_logic;                                        -- clk
+			sdram_wire_addr           : out   std_logic_vector(12 downto 0);                    -- addr
+			sdram_wire_ba             : out   std_logic_vector(1 downto 0);                     -- ba
+			sdram_wire_cas_n          : out   std_logic;                                        -- cas_n
+			sdram_wire_cke            : out   std_logic;                                        -- cke
+			sdram_wire_cs_n           : out   std_logic;                                        -- cs_n
+			sdram_wire_dq             : inout std_logic_vector(31 downto 0) := (others => 'X'); -- dq
+			sdram_wire_dqm            : out   std_logic_vector(3 downto 0);                     -- dqm
+			sdram_wire_ras_n          : out   std_logic;                                        -- ras_n
+			sdram_wire_we_n           : out   std_logic;                                        -- we_n
+			switches_export           : in    std_logic_vector(17 downto 0) := (others => 'X')  -- export
+		);
+	end component Nios2;
+

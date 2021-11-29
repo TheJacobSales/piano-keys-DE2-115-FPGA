@@ -1,0 +1,100 @@
+/*
+ * AudioKeyboard.c
+ *
+ *  Created on: Apr 25, 2021
+ *      Author: jacob
+ */
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+#include <math.h>
+#include "altera_up_avalon_audio.h"
+#include "altera_avalon_pio_regs.h"
+#include <sys/alt_irq.h>
+
+static void handle_audio_interrupts(void* context);
+static void pio_init();
+int PCM_Generator(double n, double f);
+
+volatile int contextArray[4];
+volatile double sinArray[2];
+alt_up_audio_dev *audio_dev;
+/* used for audio record/playback */
+unsigned int l_buf;
+unsigned int r_buf;
+
+int main(void)
+{
+	/*Set up global arrays*/
+	//sin generation
+	volatile double *sinArray_ptr = (volatile double*) sinArray;
+	*sinArray_ptr = 0; //space for n value
+	*(sinArray_ptr + 1) = 440; //set base frequency to 440hz
+	/*Initialize Interrupts*/
+	pio_init();
+	/* read and echo audio data */
+	while(1)
+	{
+
+	}
+}
+
+static void handle_audio_interrupts(void* context){
+	volatile double *sinArray_ptr = (volatile double*) context;
+	unsigned int *l_buf_ptr = &l_buf;
+	unsigned int *r_buf_ptr = &r_buf;
+	double n = *sinArray_ptr;
+	double f = *(sinArray_ptr+1);
+	/*
+	if(alt_up_audio_read_interrupt_pending(audio_dev)){
+		// read audio buffer
+		alt_up_audio_read_fifo (audio_dev, &(r_buf), 1, ALT_UP_AUDIO_RIGHT);
+		alt_up_audio_read_fifo (audio_dev, &(l_buf), 1, ALT_UP_AUDIO_LEFT);
+	}
+	*/
+	if(alt_up_audio_write_interrupt_pending(audio_dev)){
+		// write audio buffer
+		int signal = PCM_Generator(n,f);
+		signal = signal/10 + 8388607/10;
+		*l_buf_ptr = signal;
+		*r_buf_ptr = signal;
+		alt_up_audio_write_fifo (audio_dev, &(r_buf), 1, ALT_UP_AUDIO_RIGHT);
+		alt_up_audio_write_fifo (audio_dev, &(l_buf), 1, ALT_UP_AUDIO_LEFT);
+		if(n >= 48000-1) *sinArray_ptr = 0;
+		else *sinArray_ptr = n + 1;
+	}
+	return;
+}
+
+static void pio_init(){
+	void* contextArray_ptr = (void*) &contextArray;
+	void* sinArray_ptr = (void*) &sinArray;
+	/*Enable all 4 button interrupts*/
+	IOWR_ALTERA_AVALON_PIO_IRQ_MASK(KEYS_BASE, 0xE);
+	/* Reset the edge capture register. */
+	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(KEYS_BASE, 0x0);
+	// open the Audio port
+	audio_dev = alt_up_audio_open_dev ("/dev/AudioCore");
+	if ( audio_dev == NULL)
+	alt_printf ("Error: could not open audio device \n");
+	else
+	alt_printf ("Opened audio device \n");
+	/*Enable read and write audio interrupts*/
+	alt_up_audio_enable_write_interrupt(audio_dev);
+	alt_up_audio_enable_read_interrupt(audio_dev);
+	/* Register the ISRs */
+	alt_irq_register( AUDIOCORE_IRQ, sinArray_ptr, handle_audio_interrupts);
+	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(KEYS_BASE, 0);
+	IORD_ALTERA_AVALON_PIO_EDGE_CAP(KEYS_BASE);
+	return;
+}
+
+int PCM_Generator(double n, double f){
+	int pcm_data = 0;
+	double pcm_holder = 0.0;
+	double input = 2*M_PI*n*f/48000;
+	pcm_holder = (sin(input) + 1)*0x7FFFFF;
+	pcm_data = pcm_holder;
+	return pcm_data;
+}
+

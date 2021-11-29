@@ -1,0 +1,167 @@
+/*
+ * AudioKeyboard.c
+ *
+ *  Created on: May 3, 2021
+ *      Author: jacob
+ */
+
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+#include <math.h>
+#include "altera_up_avalon_audio.h"
+#include "altera_avalon_pio_regs.h"
+#include <sys/alt_irq.h>
+
+static void handle_audio_interrupts(void* context);
+static void handle_gpio_interrupts(void* context);
+static void pio_init();
+
+volatile int contextArray[4];
+int sinArray[3];
+static int notes[12] = {1099,1038,980,925,873,824,777,734,693,654,617,582};
+static int last_on[12] = {0,0,0,0,0,0,0,0,0,0,0,0};
+
+/* used for audio record/playback */
+alt_up_audio_dev *audio_dev;
+unsigned int l_buf;
+unsigned int r_buf;
+const double FS = 48000;
+
+int main(void)
+{	/*Clear LEDs*/
+	IOWR_ALTERA_AVALON_PIO_DATA(LEDR_BASE,0);
+	/*Set up global arrays*/
+	//sin generation
+	volatile int *sinArray_ptr = (volatile int*) sinArray;
+	*sinArray_ptr = 0; //space for n value
+	*(sinArray_ptr + 1) = notes[3]; //set base frequency to 440hz
+	*(sinArray_ptr + 2) = 0;
+	printf("point a and beyond this things get weird\n");
+	/*Initialize Interrupts*/
+	pio_init();
+	while(1)
+	{
+
+	}
+}
+
+static void handle_audio_interrupts(void* context){
+	int *sinArray_ptr = (int*) sinArray;
+	int n = *sinArray_ptr;
+	int f = *(sinArray_ptr+1);
+	int direction = *(sinArray_ptr+2);
+	int signal = 0;
+	int signal2 = 0;
+	unsigned int a = alt_up_audio_write_fifo_space(audio_dev, ALT_UP_AUDIO_RIGHT)/2;
+	if (a < (alt_up_audio_write_fifo_space(audio_dev, ALT_UP_AUDIO_LEFT))){
+		a = alt_up_audio_write_fifo_space(audio_dev, ALT_UP_AUDIO_LEFT);
+	}
+	unsigned int x[128];
+	unsigned int *x_ptr = &x;
+	/*
+	if(alt_up_audio_read_interrupt_pending(audio_dev)){
+		// read audio buffer
+		alt_up_audio_read_fifo (audio_dev, &(r_buf), 1, ALT_UP_AUDIO_RIGHT);
+		alt_up_audio_read_fifo (audio_dev, &(l_buf), 1, ALT_UP_AUDIO_LEFT);
+	}
+	*/
+	//f = f << 5;
+	f = f >> IORD_ALTERA_AVALON_PIO_DATA(SWITCHES_BASE);
+	int test = 16777216/f;
+	int test2 = 16777216/549;
+	int limit = 10*f;
+	for(unsigned int i = 0; i < a; i++) {
+		n = *sinArray_ptr;
+		signal =  (abs(n % f));
+		signal = signal *test-8388607;
+		signal2 = (abs(n % 549));
+		signal = signal + signal2 *test2-8388607;
+		signal = signal/2;
+		*sinArray_ptr = n + 1;
+		if(*sinArray_ptr==limit)*sinArray_ptr = 0;
+		/*
+		if(signal >= 8388606){
+			*(sinArray_ptr+2) = 1;
+			*sinArray_ptr = n - 1;
+			signal = 8388606;
+		}
+		else if (signal <= -8388607){
+			*(sinArray_ptr+2) = 0;
+			*sinArray_ptr = n + 1;
+			signal = -8388607;
+		}
+		else if (*(sinArray_ptr+2)) *sinArray_ptr = n - 1;
+		else *sinArray_ptr = n + 1;
+		*/
+		x[i] = signal << 8;
+	}
+	/*
+	if(alt_up_audio_write_interrupt_pending(audio_dev)){
+		// read audio buffer
+		alt_up_audio_write_fifo (audio_dev, &(r_buf), 1, ALT_UP_AUDIO_RIGHT);
+		alt_up_audio_write_fifo (audio_dev, &(l_buf), 1, ALT_UP_AUDIO_LEFT);
+	}
+	*/
+	alt_up_audio_write_fifo (audio_dev, &(x), a, ALT_UP_AUDIO_RIGHT);
+	alt_up_audio_write_fifo (audio_dev, &(x), a, ALT_UP_AUDIO_LEFT);
+
+}
+
+static void handle_gpio_interrupts(void* context){
+	int* contextArray_ptr = (int*) context;
+	volatile int *sinArray_ptr = &sinArray;
+	int edge = IORD_ALTERA_AVALON_PIO_EDGE_CAP(GPIO_EXPANSION_BASE);
+	int check = 0;
+	for(int i = 0; i<12;i++){
+		check = 1 << i;
+		if(edge & check){
+			if(last_on[i]){
+				IOWR_ALTERA_AVALON_PIO_DATA(LEDR_BASE, 0);
+				alt_up_audio_disable_write_interrupt(audio_dev);
+				*(sinArray_ptr+1) = 0;
+			}else{
+				IOWR_ALTERA_AVALON_PIO_DATA(LEDR_BASE, (IORD_ALTERA_AVALON_PIO_DATA(LEDR_BASE)^check));
+				alt_up_audio_enable_write_interrupt(audio_dev);
+				*(sinArray_ptr+1) = notes[i];
+			}
+			last_on[i] = ~last_on[i];
+		}
+	}
+	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(GPIO_EXPANSION_BASE,0);
+}
+
+static void pio_init(){
+	void* contextArray_ptr = (void*) &contextArray;
+	void* sinArray_ptr = (void*) &sinArray;
+	void* last_on = (void*) &last_on;
+	/*Enable all 4 button interrupts*/
+	IOWR_ALTERA_AVALON_PIO_IRQ_MASK(KEYS_BASE, 0xE);
+	/* Reset the edge capture register. */
+	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(KEYS_BASE, 0x0);
+	// open the Audio port
+	audio_dev = alt_up_audio_open_dev ("/dev/AudioCore");
+	if (audio_dev == NULL)
+	alt_printf ("Error: could not open audio device \n");
+	else
+	alt_printf ("Opened audio device \n");
+	/* Set up GPIO expansion header*/
+	IOWR_ALTERA_AVALON_PIO_DIRECTION(GPIO_EXPANSION_BASE,0);//set pins to input
+	IOWR_ALTERA_AVALON_PIO_IRQ_MASK(GPIO_EXPANSION_BASE,0xFFF);//set 12 pins for interrupts
+	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(GPIO_EXPANSION_BASE,0);//clear edge capture
+	/*disable read and write audio interrupts*/
+	alt_up_audio_reset_audio_core(audio_dev);//clear fifo
+	alt_up_audio_disable_write_interrupt(audio_dev);
+	alt_up_audio_disable_read_interrupt(audio_dev);
+	/* Register the ISRs */
+	alt_irq_register( AUDIOCORE_IRQ, sinArray_ptr, handle_audio_interrupts);
+	alt_irq_register( GPIO_EXPANSION_IRQ, last_on, handle_gpio_interrupts);
+	/*Clear Keys Edgecapture*/
+	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(KEYS_BASE, 0);
+	IORD_ALTERA_AVALON_PIO_EDGE_CAP(KEYS_BASE);
+	/*Enable write interrupt for audio*/
+	//alt_up_audio_enable_write_interrupt(audio_dev);
+	//alt_up_audio_enable_read_interrupt(audio_dev);
+	return;
+}
+

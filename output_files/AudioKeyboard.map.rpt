@@ -1,0 +1,383 @@
+Analysis & Synthesis report for AudioKeyboard
+Tue Apr 20 15:58:25 2021
+Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Messages
+  6. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2016  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Failed - Tue Apr 20 15:58:25 2021           ;
+; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+; Revision Name                      ; AudioKeyboard                               ;
+; Top-level Entity Name              ; AudioKeyboard                               ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; N/A until Partition Merge                   ;
+;     Total combinational functions  ; N/A until Partition Merge                   ;
+;     Dedicated logic registers      ; N/A until Partition Merge                   ;
+; Total registers                    ; N/A until Partition Merge                   ;
+; Total pins                         ; N/A until Partition Merge                   ;
+; Total virtual pins                 ; N/A until Partition Merge                   ;
+; Total memory bits                  ; N/A until Partition Merge                   ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
+; Total PLLs                         ; N/A until Partition Merge                   ;
++------------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                                      ; AudioKeyboard      ; AudioKeyboard      ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; OpenCore Plus hardware evaluation                                          ; Enable             ; Enable             ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 32          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+    Info: Processing started: Tue Apr 20 15:58:18 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off AudioKeyboard -c AudioKeyboard
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 32 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/nios2.v
+    Info (12023): Found entity 1: Nios2 File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/Nios2.v Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_reset_controller.v
+    Info (12023): Found entity 1: altera_reset_controller File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_reset_controller.v Line: 42
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_reset_synchronizer.v
+    Info (12023): Found entity 1: altera_reset_synchronizer File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_reset_synchronizer.v Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_irq_clock_crosser.sv
+    Info (12023): Found entity 1: altera_irq_clock_crosser File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_irq_clock_crosser.sv Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_irq_mapper.sv
+    Info (12023): Found entity 1: Nios2_irq_mapper File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_irq_mapper.sv Line: 31
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_mm_interconnect_0.v
+    Info (12023): Found entity 1: Nios2_mm_interconnect_0 File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_mm_interconnect_0.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_mm_interconnect_0_avalon_st_adapter.v
+    Info (12023): Found entity 1: Nios2_mm_interconnect_0_avalon_st_adapter File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_mm_interconnect_0_avalon_st_adapter.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv
+    Info (12023): Found entity 1: Nios2_mm_interconnect_0_avalon_st_adapter_error_adapter_0 File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv Line: 66
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v
+    Info (12023): Found entity 1: altera_avalon_st_handshake_clock_crosser File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_avalon_st_clock_crosser.v
+    Info (12023): Found entity 1: altera_avalon_st_clock_crosser File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_avalon_st_clock_crosser.v Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_avalon_st_pipeline_base.v
+    Info (12023): Found entity 1: altera_avalon_st_pipeline_base File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_avalon_st_pipeline_base.v Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_std_synchronizer_nocut.v
+    Info (12023): Found entity 1: altera_std_synchronizer_nocut File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_std_synchronizer_nocut.v Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_mm_interconnect_0_rsp_mux_001.sv
+    Info (12023): Found entity 1: Nios2_mm_interconnect_0_rsp_mux_001 File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_mm_interconnect_0_rsp_mux_001.sv Line: 51
+Info (12021): Found 2 design units, including 2 entities, in source file nios2/synthesis/submodules/altera_merlin_arbitrator.sv
+    Info (12023): Found entity 1: altera_merlin_arbitrator File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_merlin_arbitrator.sv Line: 103
+    Info (12023): Found entity 2: altera_merlin_arb_adder File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_merlin_arbitrator.sv Line: 228
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_mm_interconnect_0_rsp_mux.sv
+    Info (12023): Found entity 1: Nios2_mm_interconnect_0_rsp_mux File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_mm_interconnect_0_rsp_mux.sv Line: 51
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_mm_interconnect_0_rsp_demux_004.sv
+    Info (12023): Found entity 1: Nios2_mm_interconnect_0_rsp_demux_004 File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_mm_interconnect_0_rsp_demux_004.sv Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_mm_interconnect_0_rsp_demux_001.sv
+    Info (12023): Found entity 1: Nios2_mm_interconnect_0_rsp_demux_001 File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_mm_interconnect_0_rsp_demux_001.sv Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_mm_interconnect_0_rsp_demux.sv
+    Info (12023): Found entity 1: Nios2_mm_interconnect_0_rsp_demux File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_mm_interconnect_0_rsp_demux.sv Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_mm_interconnect_0_cmd_mux_004.sv
+    Info (12023): Found entity 1: Nios2_mm_interconnect_0_cmd_mux_004 File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_mm_interconnect_0_cmd_mux_004.sv Line: 51
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_mm_interconnect_0_cmd_mux.sv
+    Info (12023): Found entity 1: Nios2_mm_interconnect_0_cmd_mux File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_mm_interconnect_0_cmd_mux.sv Line: 51
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_mm_interconnect_0_cmd_demux_001.sv
+    Info (12023): Found entity 1: Nios2_mm_interconnect_0_cmd_demux_001 File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_mm_interconnect_0_cmd_demux_001.sv Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_mm_interconnect_0_cmd_demux.sv
+    Info (12023): Found entity 1: Nios2_mm_interconnect_0_cmd_demux File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_mm_interconnect_0_cmd_demux.sv Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_merlin_traffic_limiter.sv
+    Info (12023): Found entity 1: altera_merlin_traffic_limiter File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_merlin_traffic_limiter.sv Line: 49
+Info (12021): Found 2 design units, including 2 entities, in source file nios2/synthesis/submodules/altera_merlin_reorder_memory.sv
+    Info (12023): Found entity 1: altera_merlin_reorder_memory File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_merlin_reorder_memory.sv Line: 28
+    Info (12023): Found entity 2: memory_pointer_controller File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_merlin_reorder_memory.sv Line: 185
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_avalon_sc_fifo.v
+    Info (12023): Found entity 1: altera_avalon_sc_fifo File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_avalon_sc_fifo.v Line: 21
+Info (12021): Found 2 design units, including 2 entities, in source file nios2/synthesis/submodules/nios2_mm_interconnect_0_router_006.sv
+    Info (12023): Found entity 1: Nios2_mm_interconnect_0_router_006_default_decode File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_mm_interconnect_0_router_006.sv Line: 45
+    Info (12023): Found entity 2: Nios2_mm_interconnect_0_router_006 File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_mm_interconnect_0_router_006.sv Line: 84
+Info (12021): Found 2 design units, including 2 entities, in source file nios2/synthesis/submodules/nios2_mm_interconnect_0_router_002.sv
+    Info (12023): Found entity 1: Nios2_mm_interconnect_0_router_002_default_decode File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_mm_interconnect_0_router_002.sv Line: 45
+    Info (12023): Found entity 2: Nios2_mm_interconnect_0_router_002 File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_mm_interconnect_0_router_002.sv Line: 84
+Info (12021): Found 2 design units, including 2 entities, in source file nios2/synthesis/submodules/nios2_mm_interconnect_0_router_001.sv
+    Info (12023): Found entity 1: Nios2_mm_interconnect_0_router_001_default_decode File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_mm_interconnect_0_router_001.sv Line: 45
+    Info (12023): Found entity 2: Nios2_mm_interconnect_0_router_001 File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_mm_interconnect_0_router_001.sv Line: 84
+Info (12021): Found 2 design units, including 2 entities, in source file nios2/synthesis/submodules/nios2_mm_interconnect_0_router.sv
+    Info (12023): Found entity 1: Nios2_mm_interconnect_0_router_default_decode File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_mm_interconnect_0_router.sv Line: 45
+    Info (12023): Found entity 2: Nios2_mm_interconnect_0_router File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_mm_interconnect_0_router.sv Line: 84
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_merlin_slave_agent.sv
+    Info (12023): Found entity 1: altera_merlin_slave_agent File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_merlin_slave_agent.sv Line: 34
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+    Info (12023): Found entity 1: altera_merlin_burst_uncompressor File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_merlin_burst_uncompressor.sv Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_merlin_master_agent.sv
+    Info (12023): Found entity 1: altera_merlin_master_agent File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_merlin_master_agent.sv Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_merlin_slave_translator.sv
+    Info (12023): Found entity 1: altera_merlin_slave_translator File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_merlin_slave_translator.sv Line: 35
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_merlin_master_translator.sv
+    Info (12023): Found entity 1: altera_merlin_master_translator File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_merlin_master_translator.sv Line: 32
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_timer0.v
+    Info (12023): Found entity 1: Nios2_timer0 File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_timer0.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_sysid_qsys_0.v
+    Info (12023): Found entity 1: Nios2_sysid_qsys_0 File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_sysid_qsys_0.v Line: 34
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_switches.v
+    Info (12023): Found entity 1: Nios2_switches File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_switches.v Line: 21
+Info (12021): Found 2 design units, including 2 entities, in source file nios2/synthesis/submodules/nios2_sdram.v
+    Info (12023): Found entity 1: Nios2_sdram_input_efifo_module File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_sdram.v Line: 21
+    Info (12023): Found entity 2: Nios2_sdram File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_sdram.v Line: 159
+Info (12021): Found 27 design units, including 27 entities, in source file nios2/synthesis/submodules/nios2_mycpu.v
+    Info (12023): Found entity 1: Nios2_myCPU_ic_data_module File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 21
+    Info (12023): Found entity 2: Nios2_myCPU_ic_tag_module File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 89
+    Info (12023): Found entity 3: Nios2_myCPU_bht_module File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 158
+    Info (12023): Found entity 4: Nios2_myCPU_register_bank_a_module File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 227
+    Info (12023): Found entity 5: Nios2_myCPU_register_bank_b_module File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 293
+    Info (12023): Found entity 6: Nios2_myCPU_dc_tag_module File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 359
+    Info (12023): Found entity 7: Nios2_myCPU_dc_data_module File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 425
+    Info (12023): Found entity 8: Nios2_myCPU_dc_victim_module File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 490
+    Info (12023): Found entity 9: Nios2_myCPU_nios2_oci_debug File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 558
+    Info (12023): Found entity 10: Nios2_myCPU_ociram_sp_ram_module File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 700
+    Info (12023): Found entity 11: Nios2_myCPU_nios2_ocimem File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 764
+    Info (12023): Found entity 12: Nios2_myCPU_nios2_avalon_reg File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 948
+    Info (12023): Found entity 13: Nios2_myCPU_nios2_oci_break File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 1041
+    Info (12023): Found entity 14: Nios2_myCPU_nios2_oci_xbrk File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 1336
+    Info (12023): Found entity 15: Nios2_myCPU_nios2_oci_dbrk File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 1597
+    Info (12023): Found entity 16: Nios2_myCPU_nios2_oci_itrace File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 1786
+    Info (12023): Found entity 17: Nios2_myCPU_nios2_oci_td_mode File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 2170
+    Info (12023): Found entity 18: Nios2_myCPU_nios2_oci_dtrace File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 2238
+    Info (12023): Found entity 19: Nios2_myCPU_nios2_oci_compute_input_tm_cnt File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 2333
+    Info (12023): Found entity 20: Nios2_myCPU_nios2_oci_fifo_wrptr_inc File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 2405
+    Info (12023): Found entity 21: Nios2_myCPU_nios2_oci_fifo_cnt_inc File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 2448
+    Info (12023): Found entity 22: Nios2_myCPU_nios2_oci_fifo File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 2495
+    Info (12023): Found entity 23: Nios2_myCPU_nios2_oci_pib File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 2997
+    Info (12023): Found entity 24: Nios2_myCPU_nios2_oci_im File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 3066
+    Info (12023): Found entity 25: Nios2_myCPU_nios2_performance_monitors File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 3183
+    Info (12023): Found entity 26: Nios2_myCPU_nios2_oci File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 3200
+    Info (12023): Found entity 27: Nios2_myCPU File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 3776
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_mycpu_jtag_debug_module_sysclk.v
+    Info (12023): Found entity 1: Nios2_myCPU_jtag_debug_module_sysclk File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU_jtag_debug_module_sysclk.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_mycpu_jtag_debug_module_tck.v
+    Info (12023): Found entity 1: Nios2_myCPU_jtag_debug_module_tck File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU_jtag_debug_module_tck.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_mycpu_jtag_debug_module_wrapper.v
+    Info (12023): Found entity 1: Nios2_myCPU_jtag_debug_module_wrapper File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU_jtag_debug_module_wrapper.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_mycpu_mult_cell.v
+    Info (12023): Found entity 1: Nios2_myCPU_mult_cell File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU_mult_cell.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_mycpu_oci_test_bench.v
+    Info (12023): Found entity 1: Nios2_myCPU_oci_test_bench File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU_oci_test_bench.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_mycpu_test_bench.v
+    Info (12023): Found entity 1: Nios2_myCPU_test_bench File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU_test_bench.v Line: 21
+Info (12021): Found 5 design units, including 5 entities, in source file nios2/synthesis/submodules/nios2_jtag_uart_0.v
+    Info (12023): Found entity 1: Nios2_jtag_uart_0_sim_scfifo_w File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_jtag_uart_0.v Line: 21
+    Info (12023): Found entity 2: Nios2_jtag_uart_0_scfifo_w File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_jtag_uart_0.v Line: 78
+    Info (12023): Found entity 3: Nios2_jtag_uart_0_sim_scfifo_r File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_jtag_uart_0.v Line: 164
+    Info (12023): Found entity 4: Nios2_jtag_uart_0_scfifo_r File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_jtag_uart_0.v Line: 243
+    Info (12023): Found entity 5: Nios2_jtag_uart_0 File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_jtag_uart_0.v Line: 331
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_clocks.v
+    Info (12023): Found entity 1: Nios2_clocks File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_clocks.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_up_avalon_reset_from_locked_signal.v
+    Info (12023): Found entity 1: altera_up_avalon_reset_from_locked_signal File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_up_avalon_reset_from_locked_signal.v Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_up_altpll.v
+    Info (12023): Found entity 1: altera_up_altpll File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_up_altpll.v Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_audio_pll_0.v
+    Info (12023): Found entity 1: Nios2_audio_pll_0 File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_audio_pll_0.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_up_av_config_serial_bus_controller.v
+    Info (12023): Found entity 1: altera_up_av_config_serial_bus_controller File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_up_av_config_serial_bus_controller.v Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_up_slow_clock_generator.v
+    Info (12023): Found entity 1: altera_up_slow_clock_generator File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_up_slow_clock_generator.v Line: 34
+Warning (10238): Verilog Module Declaration warning at altera_up_av_config_auto_init.v(51): ignored anonymous port(s) indicated by duplicate or dangling comma(s) in the port list for module "altera_up_av_config_auto_init" File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_up_av_config_auto_init.v Line: 51
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_up_av_config_auto_init.v
+    Info (12023): Found entity 1: altera_up_av_config_auto_init File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_up_av_config_auto_init.v Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_up_av_config_auto_init_dc2.v
+    Info (12023): Found entity 1: altera_up_av_config_auto_init_dc2 File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_up_av_config_auto_init_dc2.v Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_up_av_config_auto_init_d5m.v
+    Info (12023): Found entity 1: altera_up_av_config_auto_init_d5m File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_up_av_config_auto_init_d5m.v Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_up_av_config_auto_init_lcm.v
+    Info (12023): Found entity 1: altera_up_av_config_auto_init_lcm File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_up_av_config_auto_init_lcm.v Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_up_av_config_auto_init_ltm.v
+    Info (12023): Found entity 1: altera_up_av_config_auto_init_ltm File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_up_av_config_auto_init_ltm.v Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_up_av_config_auto_init_ob_de1_soc.v
+    Info (12023): Found entity 1: altera_up_av_config_auto_init_ob_de1_soc File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_up_av_config_auto_init_ob_de1_soc.v Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_up_av_config_auto_init_ob_de2_115.v
+    Info (12023): Found entity 1: altera_up_av_config_auto_init_ob_de2_115 File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_up_av_config_auto_init_ob_de2_115.v Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_up_av_config_auto_init_ob_audio.v
+    Info (12023): Found entity 1: altera_up_av_config_auto_init_ob_audio File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_up_av_config_auto_init_ob_audio.v Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_up_av_config_auto_init_ob_adv7180.v
+    Info (12023): Found entity 1: altera_up_av_config_auto_init_ob_adv7180 File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_up_av_config_auto_init_ob_adv7180.v Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_up_av_config_auto_init_ob_adv7181.v
+    Info (12023): Found entity 1: altera_up_av_config_auto_init_ob_adv7181 File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_up_av_config_auto_init_ob_adv7181.v Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_audio_and_video_config_0.v
+    Info (12023): Found entity 1: Nios2_audio_and_video_config_0 File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_audio_and_video_config_0.v Line: 35
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_ledr.v
+    Info (12023): Found entity 1: Nios2_LEDR File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_LEDR.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_ledg.v
+    Info (12023): Found entity 1: Nios2_LEDG File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_LEDG.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_keys.v
+    Info (12023): Found entity 1: Nios2_KEYs File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_KEYs.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_hex0.v
+    Info (12023): Found entity 1: Nios2_HEX0 File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_HEX0.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_up_audio_bit_counter.v
+    Info (12023): Found entity 1: altera_up_audio_bit_counter File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_up_audio_bit_counter.v Line: 30
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_up_audio_in_deserializer.v
+    Info (12023): Found entity 1: altera_up_audio_in_deserializer File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_up_audio_in_deserializer.v Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_up_audio_out_serializer.v
+    Info (12023): Found entity 1: altera_up_audio_out_serializer File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_up_audio_out_serializer.v Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_up_clock_edge.v
+    Info (12023): Found entity 1: altera_up_clock_edge File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_up_clock_edge.v Line: 29
+Warning (10275): Verilog HDL Module Instantiation warning at altera_up_sync_fifo.v(138): ignored dangling comma in List of Port Connections File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_up_sync_fifo.v Line: 138
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/altera_up_sync_fifo.v
+    Info (12023): Found entity 1: altera_up_sync_fifo File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/altera_up_sync_fifo.v Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file nios2/synthesis/submodules/nios2_audiocore.v
+    Info (12023): Found entity 1: Nios2_AudioCore File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_AudioCore.v Line: 30
+Info (12021): Found 1 design units, including 1 entities, in source file audiokeyboard.v
+    Info (12023): Found entity 1: assign4 File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/AudioKeyboard.v Line: 1
+Warning (10037): Verilog HDL or VHDL warning at Nios2_myCPU.v(2138): conditional expression evaluates to a constant File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 2138
+Warning (10037): Verilog HDL or VHDL warning at Nios2_myCPU.v(2140): conditional expression evaluates to a constant File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 2140
+Warning (10037): Verilog HDL or VHDL warning at Nios2_myCPU.v(2298): conditional expression evaluates to a constant File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 2298
+Warning (10037): Verilog HDL or VHDL warning at Nios2_myCPU.v(3128): conditional expression evaluates to a constant File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_myCPU.v Line: 3128
+Warning (10037): Verilog HDL or VHDL warning at Nios2_sdram.v(318): conditional expression evaluates to a constant File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_sdram.v Line: 318
+Warning (10037): Verilog HDL or VHDL warning at Nios2_sdram.v(328): conditional expression evaluates to a constant File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_sdram.v Line: 328
+Warning (10037): Verilog HDL or VHDL warning at Nios2_sdram.v(338): conditional expression evaluates to a constant File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_sdram.v Line: 338
+Warning (10037): Verilog HDL or VHDL warning at Nios2_sdram.v(682): conditional expression evaluates to a constant File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/Nios2/synthesis/submodules/Nios2_sdram.v Line: 682
+Error (10206): Verilog HDL Module Declaration error at AudioKeyboard.v(24): top module port "AUD_ADCLRCK" is not found in the port list File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/AudioKeyboard.v Line: 24
+Error (10206): Verilog HDL Module Declaration error at AudioKeyboard.v(24): top module port "AUD_ADCDAT" is not found in the port list File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/AudioKeyboard.v Line: 24
+Error (10206): Verilog HDL Module Declaration error at AudioKeyboard.v(24): top module port "AUD_DACLRCK" is not found in the port list File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/AudioKeyboard.v Line: 24
+Error (10206): Verilog HDL Module Declaration error at AudioKeyboard.v(24): top module port "AUD_BCLK" is not found in the port list File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/AudioKeyboard.v Line: 24
+Error (10206): Verilog HDL Module Declaration error at AudioKeyboard.v(25): top module port "AUD_DACDAT" is not found in the port list File: D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/AudioKeyboard.v Line: 25
+Info (144001): Generated suppressed messages file D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/output_files/AudioKeyboard.map.smsg
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 5 errors, 11 warnings
+    Error: Peak virtual memory: 4726 megabytes
+    Error: Processing ended: Tue Apr 20 15:58:26 2021
+    Error: Elapsed time: 00:00:08
+    Error: Total CPU time (on all processors): 00:00:19
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/General Reference System/S/School/Spring2021/ECE178_EmbeddedSystems/AudioKeyboard/output_files/AudioKeyboard.map.smsg.
+
+
